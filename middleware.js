@@ -1,0 +1,28 @@
+import { next } from '@vercel/functions';
+
+// Password gate for the whole site, including data.json.
+// Stores only the SHA-256 hash of the password. Username is ignored.
+const PASSWORD_SHA256 = 'fe16ef31a765e7dd9b094b134f08b4f619b6cf988b979836ceb6a4fdd75f2a40';
+
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+export default async function middleware(request) {
+  const header = request.headers.get('authorization') || '';
+  if (header.startsWith('Basic ')) {
+    try {
+      const decoded = atob(header.slice(6));
+      const password = decoded.slice(decoded.indexOf(':') + 1);
+      if ((await sha256(password)) === PASSWORD_SHA256) return next();
+    } catch (e) { /* fall through to 401 */ }
+  }
+  return new Response('Password required', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Ambient Scribe report", charset="UTF-8"',
+      'Cache-Control': 'no-store'
+    }
+  });
+}
