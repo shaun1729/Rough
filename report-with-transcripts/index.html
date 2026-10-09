@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambient Scribe — September 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="report"><p>Loading…</p></main>
+
+<div id="drill" class="backdrop" hidden>
+  <div class="drill" role="dialog" aria-modal="true" aria-labelledby="drill-title">
+    <div class="drill-head">
+      <div>
+        <div id="drill-count" class="drill-count"></div>
+        <h2 id="drill-title"></h2>
+      </div>
+      <div class="drill-actions">
+        <button id="sort-btn" type="button">Sort by time ↓</button>
+        <button id="close-btn" type="button">Close</button>
+      </div>
+    </div>
+    <p id="drill-note" class="drill-note" hidden></p>
+    <div id="drill-body" class="drill-body"></div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

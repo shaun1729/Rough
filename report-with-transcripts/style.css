@@ -1,0 +1,61 @@
+:root { --ink:#1a1a1a; --mute:#666; --line:#e2e2e2; --bg:#fff; --accent:#c8321f; --soft:#f6f4f1; }
+@media (prefers-color-scheme: dark) { :root { --ink:#eee; --mute:#aaa; --line:#333; --bg:#161616; --accent:#ff7a66; --soft:#222; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width:760px; margin:0 auto; padding:32px 16px 80px; }
+h1 { font-size:28px; margin:0 0 4px; }
+h2 { font-size:19px; margin:32px 0 8px; }
+.sub { color:var(--mute); margin:0 0 20px; font-size:14px; }
+p { margin:0 0 12px; }
+ul { margin:0 0 8px; padding-left:20px; }
+li { margin:3px 0; }
+.num { font:inherit; font-weight:700; color:var(--accent); background:none; border:0; border-bottom:1.5px dotted var(--accent);
+  padding:0; cursor:pointer; }
+.num:hover, .num:focus-visible { background:var(--soft); outline:none; }
+.pct { color:var(--mute); }
+.hint { background:var(--soft); border-radius:6px; padding:10px 12px; font-size:14px; color:var(--mute); margin:0 0 20px; }
+.foot { color:var(--mute); font-size:13px; margin-top:36px; border-top:1px solid var(--line); padding-top:12px; }
+.backdrop { position:fixed; inset:0; background:rgba(0,0,0,.5); display:flex; align-items:center; justify-content:center; padding:12px; z-index:10; }
+.backdrop[hidden] { display:none; }
+.drill { background:var(--bg); width:min(1000px,100%); max-height:92vh; display:flex; flex-direction:column; border-radius:8px; overflow:hidden; }
+.drill-head { display:flex; justify-content:space-between; gap:12px; padding:14px 16px; border-bottom:1px solid var(--line); align-items:flex-start; }
+.drill-head h2 { margin:2px 0 0; font-size:18px; }
+.drill-count { font-size:13px; color:var(--accent); font-weight:700; }
+.drill-actions { display:flex; gap:8px; flex-shrink:0; }
+.drill-actions button { border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:6px 10px; border-radius:5px; cursor:pointer; font:inherit; font-size:13px; }
+.drill-note { margin:0; padding:10px 16px; background:var(--soft); font-size:13px; color:var(--mute); }
+.drill-body { overflow:auto; padding:0 4px 8px; }
+table { border-collapse:collapse; width:100%; font-size:13.5px; }
+th { text-align:left; position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:8px; font-size:12px; color:var(--mute); text-transform:uppercase; letter-spacing:.03em; }
+td { padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+.tag { display:inline-block; border:1px solid var(--line); border-radius:4px; padding:0 6px; margin:1px 3px 1px 0; font-size:12px; }
+.tag.alert { border-color:var(--accent); color:var(--accent); }
+.ok { color:#1e7a3c; font-weight:600; }
+.miss { color:var(--mute); }
+.empty { padding:24px 16px; color:var(--mute); }
+
+table.ev{width:100%;border-collapse:collapse;font-size:12px;min-width:640px}
+table.ev th{text-align:left;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#7d7979;padding:7px 8px;border-bottom:1px solid #2d2b2b;position:sticky;top:0;background:#f3f2f2}
+table.ev td{padding:6px 8px;border-bottom:1px solid #dcdada;vertical-align:top}
+table.ev td.idx{width:26px;text-align:right;opacity:.45}
+table.ev td.name{width:130px;font-weight:600}
+table.ev td.outcome{width:170px}
+table.ev td.num2{width:74px;opacity:.7;white-space:nowrap}
+table.ev .dt{opacity:.7;font-size:10.5px}
+table.ev td.quote{color:#605d5d}
+.tag{display:inline-flex;align-items:center;font-size:10.5px;padding:5px 11px;border-radius:3px;white-space:nowrap;line-height:1.3}
+.tag-neutral{background:#eae7e7;color:#605d5d}
+.tag-accent{background:rgba(236,48,19,.16);color:#ec3013}
+.tag-outline{border:1px solid #2d2b2b;border-color:#bab6b6;color:#605d5d}
+.summary-toggle{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:6px;align-items:baseline;width:100%;font:inherit;line-height:1.45}
+.summary-toggle:hover{color:#ec3013}
+.summary-toggle .chev{flex:none;font-size:9px;opacity:.5;transition:transform .12s ease}
+.summary-toggle .chev.open{transform:rotate(90deg);opacity:.9}
+.ev-detail>td{padding:0 0 12px;border-bottom:1px solid #dcdada}
+.transcript{border-left:3px solid #ec3013;padding:10px 14px;background:rgba(32,30,29,.03)}
+.t-line{padding:4px 0 4px 8px;border-left:2px solid transparent}
+.t-line.anchor{border-left-color:#ec3013}
+.t-meta{font-size:10px;letter-spacing:.02em;opacity:.55}
+.t-text{margin-top:1px}
+.t-flag{font-size:10.5px;color:#9b9797;line-height:1.5;margin-bottom:8px}
+.drill-body{overflow:auto}
