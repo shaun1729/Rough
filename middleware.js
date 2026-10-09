@@ -2,7 +2,7 @@ import { next } from '@vercel/functions';
 
 // Password gate for the whole site, including data.json.
 // Stores only the SHA-256 hash of the password. Username is ignored.
-const PASSWORD_SHA256 = 'fe16ef31a765e7dd9b094b134f08b4f619b6cf988b979836ceb6a4fdd75f2a40';
+const PASSWORD_SHA256 = 'fe41220b482eefcaf074a9cbb20d97444bef96550cf5895ec94821596bd1c18c';
 
 async function sha256(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
