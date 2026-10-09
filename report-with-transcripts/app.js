@@ -108,13 +108,13 @@
       }).join('') + '</div>';
   }
   function interactionTable(list) {
-    var head = '<tr><th>#</th><th>Name</th><th>Type</th><th>Outcome</th><th>Time</th><th>Summary</th></tr>';
+    var head = '<tr><th>#</th><th>Guest</th><th>Type</th><th>Outcome</th><th>Time</th><th>Summary</th></tr>';
     var body = sorted(list).map(function (r, i) {
       var hot = r.fb || /declin|cancel/i.test(r.oc);
       var summary = r.tr && r.tr.length
         ? '<button type="button" class="summary-toggle" aria-expanded="false"><span class="chev">\u25b8</span><span>' + esc(r.quote) + '</span></button>'
         : '\u201c' + esc(r.quote) + '\u201d';
-      return '<tr><td class="idx">' + (i + 1) + '</td><td class="name">' + esc(r.name) + '</td><td class="ty"><span class="tag tag-neutral">' + esc(r.type) + '</span></td>' +
+      return '<tr><td class="idx">' + (i + 1) + '</td><td class="name">Guest ' + (i + 1) + '</td><td class="ty"><span class="tag tag-neutral">' + esc(r.type) + '</span></td>' +
         '<td class="outcome"><span class="tag ' + (hot ? 'tag-accent' : 'tag-outline') + '">' + esc(r.outcome) + '</span>' + (r.fb ? ' <span class="tag tag-accent">Rating coaching</span>' : '') + '</td>' +
         '<td class="num2">' + esc(clock(r)) + '<br><span class="dt">' + esc(dlabel(r.date)) + '</span></td><td class="quote">' + summary + '</td></tr>' +
         '<tr class="ev-detail" hidden><td colspan="6">' + transcriptHtml(r) + '</td></tr>';
