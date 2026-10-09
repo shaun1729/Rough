@@ -162,7 +162,7 @@
     el.innerHTML =
       '<h1>Ambient Scribe — September 2026</h1>' +
       '<p class="sub">Hyderabad outlet · 1–30 September</p>' +
-      '<p class="hint">Every <button type="button" class="num" data-k="total" style="pointer-events:none">number</button> in dotted red can be clicked. It opens the list of interactions behind it.</p>' +
+      '<p class="hint">Every <button type="button" class="num" data-k="total" style="pointer-events:none">number</button> in red can be clicked. It opens the list of interactions behind it.</p>' +
 
       '<h2>Outlet performance</h2>' +
       '<p>In September the system listened at the front desk all day and picked up ' + n('total') + ' guest conversations. ' + n('walkin') + ' were walk-ins, ' + n('booked') + ' were guests who already had a booking, and for ' + n('unclearTy') + ' we could not tell.</p>' +
