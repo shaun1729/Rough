@@ -238,8 +238,10 @@
   });
   function close() { document.getElementById('drill').hidden = true; document.body.style.overflow = ''; }
 
-  fetch('data.json').then(function (r) { return r.json(); }).then(function (d) {
+  fetch('data.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
     data = d; rows = d.rows; render();
     window.__counts = Object.keys(M).reduce(function (o, k) { o[k] = count(k); return o; }, {});
+  }).catch(function () {
+    document.getElementById('report').innerHTML = '<p>The report data could not be loaded. Refresh the page, and sign in again if asked.</p>';
   });
 })();
